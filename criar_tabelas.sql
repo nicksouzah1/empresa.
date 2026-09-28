@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS empresa;
+USE empresa;
+
+CREATE TABLE IF NOT EXISTS departamento (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS funcionario (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cargo VARCHAR(100) NOT NULL,
+    salario DECIMAL(10,2) NOT NULL,
+    departamento_id INT NOT NULL,
+    FOREIGN KEY (departamento_id) REFERENCES departamento(id)
+);
